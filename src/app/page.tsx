@@ -1,103 +1,117 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, Headphones, ShieldCheck, Sparkles } from "lucide-react";
+import { CourseCard } from "@/components/CourseCard";
+import { MetricCard } from "@/components/MetricCard";
+import { ProgressCard } from "@/components/ProgressCard";
+import { courses, MAIN_COURSE_ID } from "@/data/courses";
+import { currentUser } from "@/data/dashboard";
+import { useDemo } from "@/context/DemoContext";
+
+export default function HomePage() {
+  const { userProgress, courseCompleted, audioMode } = useDemo();
+  const featured = courses.find((c) => c.id === MAIN_COURSE_ID)!;
+  const featuredCourse = {
+    ...featured,
+    status: courseCompleted ? ("completado" as const) : featured.status,
+    progress: courseCompleted ? 100 : featured.progress,
+  };
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="page-wrap space-y-6">
+      <motion.section
+        className="surface overflow-hidden"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        <div className="grid gap-6 bg-gradient-to-br from-[var(--brand)] via-[#0f7a69] to-[var(--accent)] p-6 text-white md:grid-cols-[1.4fr_1fr] md:p-8">
+          <div>
+            <span className="chip !border-white/20 !bg-white/15 !text-white">
+              Hola, {currentUser.name}
+            </span>
+            <h1 className="font-display mt-4 text-3xl font-bold leading-tight md:text-4xl">
+              SmartCaps
+            </h1>
+            <p className="mt-3 max-w-xl text-base text-white/90">
+              Aprende lo necesario, en el momento necesario. Microcápsulas de 3 a 5 minutos con
+              evaluación inmediata.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href={`/learning/${featured.slug}`} className="btn bg-white text-[var(--brand)]">
+                Continuar cápsula
+                <ArrowRight size={16} />
+              </Link>
+              <Link href="/learning" className="btn btn-ghost !border-white/25 !text-white">
+                Ver catálogo
+              </Link>
+            </div>
+          </div>
+          <div className="rounded-3xl bg-white/10 p-5 backdrop-blur-sm">
+            <p className="mb-3 text-sm text-white/80">Esta semana</p>
+            <p className="font-display text-4xl font-bold">
+              {userProgress.weeklyCompleted}/{userProgress.weeklyTotal}
+            </p>
+            <p className="mt-1 text-sm text-white/80">cápsulas completadas</p>
+            <ul className="mt-5 space-y-2 text-sm">
+              <li className="flex items-center gap-2">
+                <Sparkles size={16} /> {userProgress.badgesEarned} insignias
+              </li>
+              <li className="flex items-center gap-2">
+                <ShieldCheck size={16} /> Promedio {userProgress.averageScore}%
+              </li>
+              <li className="flex items-center gap-2">
+                <Headphones size={16} /> Modo audio {audioMode ? "activo" : "disponible"}
+              </li>
+            </ul>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </motion.section>
+
+      <section className="grid gap-4 sm:grid-cols-3">
+        <MetricCard
+          label="Cápsulas"
+          value={userProgress.capsulesCompleted}
+          hint="Completadas en total"
+        />
+        <MetricCard
+          label="Minutos"
+          value={userProgress.totalMinutes}
+          hint="Tiempo de formación"
+        />
+        <MetricCard
+          label="Insignias"
+          value={userProgress.badgesEarned}
+          hint="Logros desbloqueados"
+        />
+      </section>
+
+      <ProgressCard
+        title="Meta semanal"
+        completed={userProgress.weeklyCompleted}
+        total={userProgress.weeklyTotal}
+        caption="Mantén el ritmo con una cápsula más"
+      />
+
+      <section>
+        <div className="mb-3 flex items-end justify-between gap-3">
+          <div>
+            <h2 className="font-display text-xl font-semibold">Destacada</h2>
+            <p className="text-sm text-[var(--ink-muted)]">Tu próxima microcápsula recomendada</p>
+          </div>
+          <Link href="/learning" className="text-sm font-semibold text-[var(--brand)]">
+            Ver todas
+          </Link>
+        </div>
+        <div className="max-w-md">
+          <CourseCard
+            course={featuredCourse}
+            href={`/learning/${featured.slug}`}
+            cta={courseCompleted ? "Revisar" : "Empezar"}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+      </section>
     </div>
   );
 }

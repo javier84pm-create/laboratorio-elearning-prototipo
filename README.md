@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SmartCaps — Laboratorio E-Learning (prototipo)
 
-## Getting Started
+Prototipo Next.js de **SmartCaps**: microcápsulas interactivas de 3–5 minutos con evaluación inmediata, modo audio, insignias y panel administrador.
 
-First, run the development server:
+## Requisitos
+
+- Node.js 18+
+- npm
+
+## Instalación y arranque
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Rutas principales
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Inicio aprendiz (meta semanal + cápsula destacada) |
+| `/learning` | Catálogo de microcápsulas |
+| `/learning/prevencion-riesgos` | Reproductor + modo solo audio |
+| `/learning/prevencion-riesgos/quiz` | Evaluación (A/B/C; B correcta; reintentos ilimitados) |
+| `/learning/prevencion-riesgos/result` | Completitud e insignia |
+| `/progress` | Progreso e insignias del aprendiz |
+| `/admin` | KPIs, gráficos, filtros y exportación simulada |
+| `/admin/participants` | Búsqueda y detalle (drawer) de participantes |
+| `/about-solution` | Comparación de solución y segmentos |
 
-## Learn More
+## Material del examen (video / PPT)
 
-To learn more about Next.js, take a look at the following resources:
+Para la demo del video de examen, usa la presentación:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**`PaolaCornejo_Examen_IE.pptx`**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+El guion AIDA del video está en `guion-video-aida-2min.md`.
 
-## Deploy on Vercel
+## Notas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Los datos del panel admin son **demostrativos**.
+- El estado de la demo (audio, quiz, completitud) se guarda en `localStorage`.
+- Marca: teal `#0d6b5c` · tipografías Outfit + Lexend.

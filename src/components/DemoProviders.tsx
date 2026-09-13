@@ -5,6 +5,9 @@ import { DemoProvider } from "@/context/DemoContext";
 import { AppHeader } from "@/components/AppHeader";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { Toast } from "@/components/Toast";
+import { XpFloatHost } from "@/components/XpFloatHost";
+import { LeagueUpgradeOverlay } from "@/components/LeagueUpgradeOverlay";
+import { OnboardingTour } from "@/components/OnboardingTour";
 
 export function DemoProviders({ children }: { children: ReactNode }) {
   return (
@@ -14,6 +17,9 @@ export function DemoProviders({ children }: { children: ReactNode }) {
         <main className="flex-1">{children}</main>
         <MobileBottomNav />
         <Toast />
+        <XpFloatHost />
+        <LeagueUpgradeOverlay />
+        <OnboardingTour />
       </div>
     </DemoProvider>
   );

@@ -16,7 +16,9 @@ export function DashboardChart({ data }: { data: CourseCompletion[] }) {
     <div className="surface p-5">
       <div className="mb-4">
         <h2 className="font-display text-lg font-semibold">Finalización por curso</h2>
-        <p className="text-sm text-[var(--ink-muted)]">Tasa de completitud (%) — datos demostrativos</p>
+        <p className="text-sm text-[var(--ink-muted)]">
+          Tasa de completitud (%) — calculada desde la cohorte
+        </p>
       </div>
       <div className="h-64 w-full">
         <ResponsiveContainer width="100%" height="100%">

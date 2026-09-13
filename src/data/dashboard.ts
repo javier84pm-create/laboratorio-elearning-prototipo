@@ -1,33 +1,35 @@
 import type { CourseCompletion, DashboardKpis, DemoUserProgress } from "@/types";
 
+/** Valores de respaldo; el admin calcula KPIs desde la cohorte en vivo. */
 export const dashboardKpis: DashboardKpis = {
-  participants: 126,
-  completed: 103,
-  pending: 23,
-  completionRate: 81.7,
-  averageScore: 89,
-  averageTime: "3:24",
+  participants: 14,
+  completed: 7,
+  pending: 7,
+  completionRate: 50,
+  averageScore: 94,
+  averageTime: "3:48",
 };
 
 export const courseCompletions: CourseCompletion[] = [
-  { name: "Prevención de Riesgos", rate: 92 },
-  { name: "Inducción", rate: 84 },
-  { name: "Protección de Datos", rate: 79 },
-  { name: "Atención al Cliente", rate: 76 },
+  { name: "Prevención de Riesgos", rate: 50 },
+  { name: "Inducción", rate: 100 },
+  { name: "Protección de Datos", rate: 100 },
+  { name: "Atención al Cliente", rate: 0 },
 ];
 
 export const currentUser = {
-  name: "Camila",
-  fullName: "Camila Rojas",
+  name: "Paola",
+  fullName: "Paola Cornejo",
   role: "Aprendiz",
 };
 
+/** Estado limpio de demo: sin progreso ni datos de aprendiz. */
 export const initialUserProgress: DemoUserProgress = {
-  weeklyCompleted: 4,
+  weeklyCompleted: 0,
   weeklyTotal: 5,
-  capsulesCompleted: 11,
-  badgesEarned: 3,
-  averageScore: 92,
-  totalMinutes: 38,
-  completedCourseIds: ["proteccion-datos", "induccion", "etica"],
+  capsulesCompleted: 0,
+  badgesEarned: 0,
+  averageScore: 0,
+  totalMinutes: 0,
+  completedCourseIds: [],
 };

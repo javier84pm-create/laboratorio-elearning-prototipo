@@ -7,12 +7,12 @@ export function MetricCard({
   icon,
 }: {
   label: string;
-  value: string | number;
+  value: ReactNode;
   hint?: string;
   icon?: ReactNode;
 }) {
   return (
-    <article className="surface p-4">
+    <article className="surface card-lift p-4">
       <div className="mb-3 flex items-start justify-between gap-3">
         <p className="text-sm text-[var(--ink-muted)]">{label}</p>
         {icon ? (

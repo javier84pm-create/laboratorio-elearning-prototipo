@@ -1,5 +1,32 @@
 export type CourseStatus = "completado" | "en_progreso" | "pendiente";
 
+export interface CapsuleStep {
+  id: string;
+  title: string;
+  body: string;
+  tip: string;
+}
+
+export interface QuizOption {
+  id: string;
+  label: string;
+  correct: boolean;
+  feedback: string;
+}
+
+export interface QuizContent {
+  question: string;
+  hint: string;
+  options: QuizOption[];
+}
+
+export interface CourseContent {
+  steps: CapsuleStep[];
+  quiz: QuizContent;
+  badgeName: string;
+  remainingSeconds: number;
+}
+
 export interface Course {
   id: string;
   title: string;
@@ -10,6 +37,12 @@ export interface Course {
   progress: number;
   slug: string;
   evaluations: number;
+  content: CourseContent;
+  theme: {
+    primary: string;
+    soft: string;
+    emoji: string;
+  };
 }
 
 export interface Badge {
@@ -57,4 +90,12 @@ export interface DemoUserProgress {
   averageScore: number;
   totalMinutes: number;
   completedCourseIds: string[];
+}
+
+export interface CourseSession {
+  started: boolean;
+  completed: boolean;
+  capsuleStep: number;
+  remainingSeconds: number;
+  attempts: number;
 }

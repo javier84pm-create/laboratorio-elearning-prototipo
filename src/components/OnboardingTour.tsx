@@ -89,13 +89,13 @@ export function OnboardingTour({ forceOpen = false, onClose }: { forceOpen?: boo
             role="dialog"
             aria-modal="true"
             aria-labelledby="onboarding-title"
-            className="relative w-full max-w-md overflow-hidden rounded-[1.4rem] border border-[var(--line)] bg-white shadow-[0_24px_60px_rgba(13,107,92,0.22)]"
+            className="relative w-full max-w-md overflow-hidden rounded-[1.4rem] border border-[var(--line)] bg-white shadow-[0_24px_60px_rgba(47,58,143,0.22)]"
             initial={{ opacity: 0, y: 28, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16 }}
             transition={{ type: "spring", stiffness: 360, damping: 28 }}
           >
-            <div className="relative bg-gradient-to-br from-[var(--brand)] via-[#0f7a69] to-[var(--accent)] px-5 pb-6 pt-4 text-white">
+            <div className="relative bg-gradient-to-br from-[var(--brand)] via-[#454fb0] to-[#ff6b4a] px-5 pb-6 pt-4 text-white">
               <button
                 type="button"
                 className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full bg-white/15"

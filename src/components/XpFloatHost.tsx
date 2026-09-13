@@ -9,7 +9,7 @@ export function XpFloatHost() {
   const { xpBurst } = useDemo();
   const [mounted, setMounted] = useState(false);
   const [items, setItems] = useState<
-    { id: number; amount: number; emoji: string; x: number }[]
+    { id: number; amount: number; emoji: string; offset: number }[]
   >([]);
 
   useEffect(() => setMounted(true), []);
@@ -23,7 +23,7 @@ export function XpFloatHost() {
         id,
         amount: xpBurst.amount,
         emoji: xpBurst.emoji,
-        x: 38 + Math.random() * 24,
+        offset: (Math.random() - 0.5) * 28,
       },
     ]);
     const t = window.setTimeout(() => {
@@ -40,12 +40,12 @@ export function XpFloatHost() {
         {items.map((item) => (
           <motion.div
             key={item.id}
-            className="absolute bottom-[28%] rounded-full bg-[var(--ink)] px-3 py-1.5 text-sm font-bold text-white shadow-lg"
-            style={{ left: `${item.x}%` }}
-            initial={{ opacity: 0, y: 20, scale: 0.8 }}
-            animate={{ opacity: 1, y: -90, scale: 1.05 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.15, ease: "easeOut" }}
+            className="absolute right-4 top-16 rounded-full bg-[var(--ink)] px-3 py-1.5 text-sm font-bold text-white shadow-lg sm:right-6 sm:top-20"
+            style={{ marginRight: item.offset }}
+            initial={{ opacity: 0, y: 12, scale: 0.85 }}
+            animate={{ opacity: 1, y: -56, scale: 1 }}
+            exit={{ opacity: 0, y: -72 }}
+            transition={{ duration: 1.1, ease: "easeOut" }}
           >
             {item.emoji} {item.amount > 0 ? `+${item.amount}` : item.amount} XP
           </motion.div>

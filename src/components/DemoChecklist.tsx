@@ -72,7 +72,7 @@ export function DemoChecklist() {
 
   return (
     <section className="surface overflow-hidden">
-      <div className="bg-gradient-to-br from-[#0d6b5c] to-[#1a9b84] px-5 py-5 text-white">
+      <div className="bg-gradient-to-br from-[var(--brand)] to-[#4a55b0] px-5 py-5 text-white">
         <p className="inline-flex items-center gap-2 text-sm text-white/85">
           <Clapperboard size={15} /> Guion de grabación
         </p>

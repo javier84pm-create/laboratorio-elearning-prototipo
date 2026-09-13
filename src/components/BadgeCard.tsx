@@ -26,8 +26,12 @@ export function BadgeCard({
         highlight ? "badge-glow ring-2 ring-[var(--accent-warm)]/50" : ""
       }`}
       initial={highlight ? { scale: 0.92, opacity: 0 } : false}
-      animate={highlight ? { scale: [1, 1.04, 1], opacity: 1 } : { scale: 1, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 280, damping: 16 }}
+      animate={highlight ? { scale: 1, opacity: 1 } : { scale: 1, opacity: 1 }}
+      transition={
+        highlight
+          ? { type: "spring", stiffness: 280, damping: 16 }
+          : { duration: 0.2 }
+      }
     >
       <span
         className={`grid h-11 w-11 shrink-0 place-items-center rounded-2xl ${

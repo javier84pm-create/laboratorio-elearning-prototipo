@@ -48,7 +48,7 @@ export default function AboutSolutionPage() {
   return (
     <div className="page-wrap space-y-6">
       <motion.section className="surface overflow-hidden" {...fadeUp}>
-        <div className="bg-gradient-to-br from-[var(--brand)] via-[#0f7a69] to-[var(--accent)] px-6 py-8 text-white md:px-8">
+        <div className="bg-gradient-to-br from-[var(--brand)] via-[#454fb0] to-[#ff6b4a] px-6 py-8 text-white md:px-8">
           <span className="chip !border-white/20 !bg-white/15 !text-white">
             Propuesta de valor
           </span>

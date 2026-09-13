@@ -56,7 +56,7 @@ export default function HomePage() {
   return (
     <div className="page-wrap space-y-6">
       <motion.section className="surface overflow-hidden" {...fadeUp}>
-        <div className="grid gap-6 bg-gradient-to-br from-[var(--brand)] via-[#0f7a69] to-[var(--accent)] p-6 text-white md:grid-cols-[1.4fr_1fr] md:p-8">
+        <div className="grid gap-6 bg-gradient-to-br from-[var(--brand)] via-[#454fb0] to-[#ff6b4a] p-6 text-white md:grid-cols-[1.4fr_1fr] md:p-8">
           <div>
             <div className="flex flex-wrap gap-2">
               <span className="chip !border-white/20 !bg-white/15 !text-white">

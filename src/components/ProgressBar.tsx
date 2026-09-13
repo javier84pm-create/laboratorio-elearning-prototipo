@@ -7,7 +7,7 @@ export function ProgressBar({
   label?: string;
   compact?: boolean;
 }) {
-  const clamped = Math.max(0, Math.min(100, value));
+  const clamped = Math.round(Math.max(0, Math.min(100, value)));
 
   return (
     <div className={compact ? "space-y-1" : "space-y-2"}>

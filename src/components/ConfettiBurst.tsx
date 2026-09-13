@@ -37,8 +37,8 @@ export function ConfettiBurst({
     if (!show) return;
     if (withSound) playSfx("complete", sfxEnabled);
     const colors = [
-      "#0d6b5c",
-      "#1a9b84",
+      "#2f3a8f",
+      "#ff6b4a",
       "#d4a017",
       "#e36a2e",
       "#7c3aed",

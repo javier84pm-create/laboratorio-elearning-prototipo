@@ -317,7 +317,7 @@ export const courses: Course[] = [
     slug: "prevencion-riesgos",
     evaluations: 1,
     content: prevencionContent,
-    theme: { primary: "#0d6b5c", soft: "#d8f0ea", emoji: "🦺" },
+    theme: { primary: "#2f3a8f", soft: "#e4e7f7", emoji: "🦺" },
   },
   {
     id: "proteccion-datos",

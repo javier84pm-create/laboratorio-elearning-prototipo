@@ -172,7 +172,23 @@ export default function CapsulePlayerPage() {
         onTogglePlay={handleTogglePlay}
         onToggleAudio={() => {
           play("tap");
-          setAudioMode(!audioMode);
+          const next = !audioMode;
+          setAudioMode(next);
+          if (next) {
+            showToast("🎧 Solo audio: el texto pasa a segundo plano");
+            // Activa narración al entrar al modo
+            if (!playing) {
+              if (typeof window !== "undefined" && window.speechSynthesis?.paused) {
+                resume();
+              }
+              setPlaying(true);
+              if (!supported) {
+                showToast("😅 Sin voz en este navegador · puedes abrir “Ver texto del paso”");
+              }
+            }
+          } else {
+            showToast("📖 Modo lectura activado");
+          }
         }}
         onNext={handleNext}
         onGoQuiz={handleGoQuiz}

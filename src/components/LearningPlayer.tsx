@@ -106,17 +106,39 @@ export function LearningPlayer({
       <div className="space-y-5 p-5">
         <ProgressBar value={progress} label="Avance de la cápsula" />
 
-        {!audioMode ? (
-          <p className="text-base leading-relaxed text-[var(--ink)]">{body}</p>
+        {audioMode ? (
+          <div className="rounded-2xl border border-[var(--brand)]/25 bg-[var(--brand-soft)] p-5 text-center">
+            <p className="text-3xl" aria-hidden>
+              🎧
+            </p>
+            <p className="font-display mt-2 text-lg font-semibold text-[var(--brand)]">
+              Modo solo audio
+            </p>
+            <p className="mt-1 text-sm text-[var(--ink-muted)]">
+              {playing || speaking
+                ? "El asistente está narrando este paso. Puedes seguir sin mirar la pantalla."
+                : "Pulsa Reproducir para escuchar. Ideal si vas en tránsito o multitarea."}
+            </p>
+            <details className="mt-4 text-left">
+              <summary className="cursor-pointer text-sm font-semibold text-[var(--brand)]">
+                Ver texto del paso
+              </summary>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--ink)]">{body}</p>
+            </details>
+          </div>
         ) : (
-          <p className="rounded-2xl bg-[var(--brand-soft)] p-4 text-sm leading-relaxed text-[var(--ink-muted)]">
-            {body}
-          </p>
+          <p className="text-base leading-relaxed text-[var(--ink)]">{body}</p>
         )}
 
-        <div className="rounded-2xl border border-dashed border-[var(--line)] bg-[var(--surface-muted)] px-4 py-3 text-sm text-[var(--ink-muted)]">
-          <strong className="text-[var(--brand)]">Tip:</strong> {tip}
-        </div>
+        {!audioMode ? (
+          <div className="rounded-2xl border border-dashed border-[var(--line)] bg-[var(--surface-muted)] px-4 py-3 text-sm text-[var(--ink-muted)]">
+            <strong className="text-[var(--brand)]">Tip:</strong> {tip}
+          </div>
+        ) : (
+          <p className="text-center text-xs text-[var(--ink-muted)]">
+            Tip en audio: el consejo también se narra al reproducir.
+          </p>
+        )}
 
         <div className="flex flex-wrap gap-2">
           <motion.button
@@ -137,7 +159,7 @@ export function LearningPlayer({
             {...pressable}
           >
             <Volume2 size={16} />
-            Solo audio
+            {audioMode ? "Modo lectura" : "Solo audio"}
           </motion.button>
         </div>
 
@@ -147,7 +169,9 @@ export function LearningPlayer({
           </p>
         ) : (
           <p className="text-xs text-[var(--ink-muted)]">
-            La voz usa la síntesis del navegador (español). Sube el volumen y pulsa Reproducir.
+            {audioMode
+              ? "Solo audio oculta el texto grande y prioriza la narración. Vuelve a “Modo lectura” si prefieres leer."
+              : "La voz usa la síntesis del navegador (español). Sube el volumen y pulsa Reproducir."}
           </p>
         )}
 

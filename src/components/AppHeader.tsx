@@ -49,7 +49,7 @@ export function AppHeader() {
       <header className="sticky top-0 z-40 border-b border-[var(--line)]/70 bg-white/80 backdrop-blur-md">
         <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-4 px-4 py-3">
           <Link href="/" className="flex items-center gap-2">
-            <span className="avatar-ia !h-10 !w-10 !rounded-xl">
+            <span className="brand-mark !h-10 !w-10 !rounded-xl">
               <Sparkles size={18} />
             </span>
             <div>

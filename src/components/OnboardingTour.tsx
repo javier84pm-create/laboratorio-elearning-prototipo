@@ -16,7 +16,7 @@ const TIPS = [
     icon: Headphones,
     emoji: "🎧",
     title: "Microcápsulas vivas",
-    body: "Cada cápsula dura 3–5 minutos: lee o escucha al asistente, avanza por pasos y suma XP.",
+    body: "Cada cápsula dura 3–5 minutos: lee o escucha la narración del caso, avanza por pasos y suma XP.",
   },
   {
     icon: Trophy,

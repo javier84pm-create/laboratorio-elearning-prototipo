@@ -63,7 +63,7 @@ export function LearningPlayer({
       <div
         className="border-b border-[var(--line)] px-5 py-6 text-white"
         style={{
-          background: `linear-gradient(135deg, ${accent} 0%, color-mix(in srgb, ${accent} 70%, #0a4f44) 100%)`,
+          background: `linear-gradient(135deg, ${accent} 0%, color-mix(in srgb, ${accent} 65%, #1a1f36) 100%)`,
         }}
       >
         <div className="mb-4 flex items-center justify-between gap-3">
@@ -79,11 +79,11 @@ export function LearningPlayer({
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div className="min-w-0 flex-1">
             <p className="text-sm text-white/80">
-              Asistente SmartCaps{" "}
+              Narración del caso{" "}
               {speaking
-                ? "· narrando…"
+                ? "· reproduciendo…"
                 : voiceSupported
-                  ? "· listo para hablar"
+                  ? "· lista para oír"
                   : "· solo texto"}
             </p>
             <h1 className="font-display mt-1 text-2xl font-bold leading-tight">{title}</h1>
@@ -116,7 +116,7 @@ export function LearningPlayer({
             </p>
             <p className="mt-1 text-sm text-[var(--ink-muted)]">
               {playing || speaking
-                ? "El asistente está narrando este paso. Puedes seguir sin mirar la pantalla."
+                ? "Se está narrando este paso del caso. Puedes seguir sin mirar la pantalla."
                 : "Pulsa Reproducir para escuchar. Ideal si vas en tránsito o multitarea."}
             </p>
             <details className="mt-4 text-left">

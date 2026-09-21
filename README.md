@@ -1,6 +1,6 @@
 # SmartCaps — Laboratorio E-Learning (prototipo)
 
-Prototipo Next.js de **SmartCaps**: microcápsulas interactivas de 3–5 minutos con evaluación inmediata, voz, gamificación (XP, vidas, liga, racha) y panel administrador.
+Prototipo Next.js de **SmartCaps**: microcápsulas interactivas de 3–5 minutos con casos/dramatización, narración (modo Solo audio), evaluación inmediata, gamificación (XP, vidas, liga, racha) y panel administrador. **Sin IA ni avatares inteligentes** (alineado al pitch del examen).
 
 ## Requisitos
 

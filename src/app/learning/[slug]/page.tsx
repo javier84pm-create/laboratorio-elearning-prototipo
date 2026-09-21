@@ -69,7 +69,7 @@ export default function CapsulePlayerPage() {
   useEffect(() => {
     if (autoStarted || !supported || !course) return;
     setAutoStarted(true);
-    showToast("🎧 Pulsa Reproducir para oír al asistente");
+    showToast("🎧 Pulsa Reproducir para oír la narración del caso");
   }, [autoStarted, supported, showToast, course]);
 
   if (!course || !step) {
@@ -142,7 +142,7 @@ export default function CapsulePlayerPage() {
           <h1 className="font-display text-2xl font-bold md:text-3xl">Microcápsula viva</h1>
           <p className="mt-1 text-sm text-[var(--ink-muted)]">
             {steps.length} pasos · timer real ·{" "}
-            {supported ? "voz del asistente activa" : "texto (voz no disponible)"}
+            {supported ? "narración de audio disponible" : "texto (voz no disponible)"}
           </p>
         </div>
         <div className="flex flex-wrap gap-2">

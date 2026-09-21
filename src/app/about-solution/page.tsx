@@ -18,25 +18,25 @@ import { fadeUp, staggerContainer, staggerItem } from "@/lib/motion";
 
 const segments = [
   {
-    title: "Empresas",
-    text: "Cumplimiento operativo sin detener la jornada laboral.",
+    title: "ACHS",
+    text: "Piloto propuesto: microcápsula de prevención de riesgos sin detener la jornada.",
     icon: Building2,
   },
   {
-    title: "Universidades",
-    text: "Refuerzo microlearning entre clases y prácticas.",
+    title: "IPLACEX",
+    text: "Formación complementaria breve entre clases y práctica laboral.",
     icon: GraduationCap,
   },
   {
-    title: "OTEC / Público",
-    text: "Capacitación masiva con trazabilidad clara.",
+    title: "Municipalidad de Santiago",
+    text: "Inducción y compliance municipal con trazabilidad en LMS/SCORM.",
     icon: Landmark,
   },
 ];
 
 const flow = [
   "Contenido extenso",
-  "IA + diseño instruccional",
+  "Diseño instruccional + casos reales",
   "Microcápsula 3–5 min",
   "Evaluación práctica",
   "Métricas institucionales",
